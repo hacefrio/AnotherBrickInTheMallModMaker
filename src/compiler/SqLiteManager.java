@@ -92,8 +92,9 @@ public class SqLiteManager {
                     properties[12] = rs.getString("vertical_gfx");
                     properties[13] = rs.getString("checkout_gfx");
                 }else{
-                    counter++;
+                    
                 }
+                counter++;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

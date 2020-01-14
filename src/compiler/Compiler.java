@@ -54,7 +54,7 @@ public class Compiler {
             writer.println("    </ModShortDescription>");
             int number=0;
             for (int i = 0; i < Integer.valueOf(conn.getCountProducts()); i++) {
-                String[] product=conn.getProductProperties(0);
+                String[] product=conn.getProductProperties(i);
                 writer.println("<product>");
                 writer.println("    <codename>"+product[0]+"</codename>");
                 writer.println("    <name>");

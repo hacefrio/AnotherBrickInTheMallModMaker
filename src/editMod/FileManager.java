@@ -40,5 +40,15 @@ public class FileManager {
         }
         copyFolder(newCapsule,System.getProperty("user.home") + "/Desktop/tempmod/capsule.png");
         setCapsuleImage(label);
-    }       
+    }   
+    
+    public void uploadProductImageHorizontal(String routeImage,String codename) throws IOException{
+        copyFolder(routeImage,System.getProperty("user.home") + "/Desktop/tempmod/images/horizontal"+codename+".png");
+    }
+    public void uploadProductImageVertical(String routeImage,String codename) throws IOException{
+        copyFolder(routeImage,System.getProperty("user.home") + "/Desktop/tempmod/images/Vertical"+codename+".png");
+    }
+    public void uploadProductImageCheckout(String routeImage,String codename) throws IOException{
+        copyFolder(routeImage,System.getProperty("user.home") + "/Desktop/tempmod/images/CheckOut"+codename+".png");
+    }
 }

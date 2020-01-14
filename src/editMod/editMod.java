@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -20,6 +21,9 @@ public class editMod extends javax.swing.JFrame {
 
     FileManager FM = new FileManager();
     SqLiteManager conn = new SqLiteManager();
+    String tempHorizontalGfx = "";
+    String tempVerticalGfx = "";
+    String tempCheckoutGfx = "";
 
     /**
      * Creates new form editMod
@@ -57,8 +61,6 @@ public class editMod extends javax.swing.JFrame {
         baseDemandBarRefresh();
     }
 
- 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -329,18 +331,38 @@ public class editMod extends javax.swing.JFrame {
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton7.setText("upload file");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, -1, -1));
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton8.setText("upload file");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, -1, -1));
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton9.setText("upload file");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, -1));
 
         jButton10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton10.setText("Create / Edit  Product");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 400, 170, -1));
 
         basePriceCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -446,7 +468,7 @@ public class editMod extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         String[] product = conn.loadProduct((String) list.getSelectedItem());
-        product tempProd =new product();
+        product tempProd = new product();
         productCodeName.setText(product[0]);
         productCodeName.setEditable(false);
         productName.setText(product[1]);
@@ -467,6 +489,72 @@ public class editMod extends javax.swing.JFrame {
         // TODO add your handling code here:
         clear();
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int opcion = fc.showOpenDialog(null);
+        if (opcion == JFileChooser.APPROVE_OPTION) {
+            try {
+                FM.uploadProductImageHorizontal((String) fc.getSelectedFile().getAbsolutePath(), productCodeName.getText());
+                tempHorizontalGfx = "images/Horizontal" + productCodeName.getText() + ".png";
+            } catch (Exception ex) {
+            }
+
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int opcion = fc.showOpenDialog(null);
+        if (opcion == JFileChooser.APPROVE_OPTION) {
+            try {
+                FM.uploadProductImageVertical((String) fc.getSelectedFile().getAbsolutePath(), productCodeName.getText());
+                tempVerticalGfx = "images/Vertical" + productCodeName.getText() + ".png";
+            } catch (Exception ex) {
+            }
+
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int opcion = fc.showOpenDialog(null);
+        if (opcion == JFileChooser.APPROVE_OPTION) {
+            try {
+                FM.uploadProductImageCheckout((String) fc.getSelectedFile().getAbsolutePath(), productCodeName.getText());
+                tempCheckoutGfx = "images/Checkout" + productCodeName.getText() + ".png";
+            } catch (Exception ex) {
+            }
+
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        product product = new product();
+        product.setCodename(productCodeName.getText());
+        product.setName(productName.getText());
+        product.setSpecalty_name(specialtyName.getText());
+        product.setSubtype(Integer.toString(product.subTypeStringToInt((String)subType.getSelectedItem())));
+        product.setDisplay_type(Integer.toString(product.displayTypeStringToInt((String) displayType.getSelectedItem())));
+        product.setDepletion_rate(depletionRateCount.getText());
+        product.setBase_demand(baseDemandCount.getText());
+        product.setBase_price(basePriceCount.getText());
+        product.setQuality_distribution(Integer.toString(product.qualityDistributionStringToInt((String) qualityDistribution.getSelectedItem())));
+        product.setExpires_in_hours(expires.getText());
+        product.setRequires_research(Integer.toString(product.requiresResearchStringToInt((String) requiresResearch.getSelectedItem())));
+        product.setHorizontal_gfx(tempHorizontalGfx);
+        product.setVertical_gfx(tempVerticalGfx);
+        product.setCheckout_gfx(tempCheckoutGfx);
+        product.saveProduct();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
     public void clear() {
         productCodeName.setText("");
         productCodeName.setEditable(true);
