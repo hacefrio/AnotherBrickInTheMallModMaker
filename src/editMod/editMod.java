@@ -57,6 +57,8 @@ public class editMod extends javax.swing.JFrame {
         baseDemandBarRefresh();
     }
 
+ 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -93,7 +95,7 @@ public class editMod extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         subType = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        qualityDistribution = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
         depletionRateBar = new javax.swing.JSlider();
         baseDemandBar = new javax.swing.JSlider();
@@ -104,7 +106,7 @@ public class editMod extends javax.swing.JFrame {
         displayType = new javax.swing.JComboBox();
         expires = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        requiresResearch = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -250,9 +252,9 @@ public class editMod extends javax.swing.JFrame {
         jLabel10.setText("depletion rate:");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "no specialization", "standard", "high sub-category", "specialty","high specialty","no middle","only specialty" }));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 210, -1));
+        qualityDistribution.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        qualityDistribution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "no specialization (100/0/0)", "standard (75/25/0)", "high sub-category (50/50/0)", "specialty (30/30/40)","high specialty (10/30/70)","no middle (30/0/70) - typically for products in the 'Misc' sub-category","only specialty (0/0/100)" }));
+        jPanel2.add(qualityDistribution, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Display type:");
@@ -305,9 +307,9 @@ public class editMod extends javax.swing.JFrame {
         jLabel15.setText("expires(hours):");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
 
-        jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cold chain", "Alcohol license", "Frozen food supplier", "Chemical supplier","Clothing supplier","Electronics supplier","Media supplier","Appliances supplier","Tools supplier","Luxury supplier","Tobacco license","Newsagent supplier","Plants and Gardening supplier","E-Cigarettes supplier" }));
-        jPanel2.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 210, -1));
+        requiresResearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        requiresResearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cold chain","Alcohol license","Frozen food supplier","Chemical supplier","Clothing supplier","Electronics supplier","Media supplier","Appliances supplier","Tools supplier","Luxury supplier","Tobacco license","Newsagent supplier","Plants and Gardening supplier","E-Cigarettes supplier"}));
+        jPanel2.add(requiresResearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 210, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel16.setText("checkout gfx:");
@@ -444,14 +446,20 @@ public class editMod extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         String[] product = conn.loadProduct((String) list.getSelectedItem());
+        product tempProd =new product();
         productCodeName.setText(product[0]);
         productCodeName.setEditable(false);
         productName.setText(product[1]);
         specialtyName.setText(product[2]);
+        subType.setSelectedItem(tempProd.subTypeIntToString(Integer.valueOf(product[3])));
+        displayType.setSelectedItem(tempProd.displayTypeIntToString(Integer.valueOf(product[4])));
         depletionRateBar.setValue(Integer.valueOf(product[5]));
         baseDemandBar.setValue(Integer.valueOf(product[6]));
         basePriceBar.setValue(Integer.valueOf(product[7]));
+        qualityDistribution.setSelectedItem(tempProd.qualityDistributionIntToString(Integer.valueOf(product[8])));
+        System.out.println(product[8]);
         expires.setText(product[9]);
+        requiresResearch.setSelectedItem(tempProd.requiresResearchIntToString(Integer.valueOf(product[10])));
         barrasReload();
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -464,10 +472,11 @@ public class editMod extends javax.swing.JFrame {
         productCodeName.setEditable(true);
         productName.setText("");
         specialtyName.setText("");
-        depletionRateBar.setValue(Integer.valueOf(""));
-        baseDemandBar.setValue(Integer.valueOf(""));
-        basePriceBar.setValue(Integer.valueOf(""));
+        depletionRateBar.setValue(50);
+        baseDemandBar.setValue(50);
+        basePriceBar.setValue(50);
         expires.setText("");
+        barrasReload();
     }
 
     public void barrasReload() {
@@ -544,8 +553,6 @@ public class editMod extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -574,6 +581,8 @@ public class editMod extends javax.swing.JFrame {
     private javax.swing.JTextField productCodeName;
     private javax.swing.JTextField productCount;
     private javax.swing.JTextField productName;
+    private javax.swing.JComboBox qualityDistribution;
+    private javax.swing.JComboBox requiresResearch;
     private javax.swing.JTextField specialtyName;
     private javax.swing.JComboBox subType;
     // End of variables declaration//GEN-END:variables

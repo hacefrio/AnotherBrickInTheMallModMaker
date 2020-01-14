@@ -38,15 +38,17 @@ public class FileManager {
     private PrintWriter writer;
     SqLiteManager conn = new SqLiteManager();
 
-
     public void clearFolder() {
 
         File index = new File(folder);
-        String[] entries = index.list();
-        for (String s : entries) {
-            File currentFile = new File(index.getPath(), s);
-            currentFile.delete();
+        if (index.exists()) {
+            String[] entries = index.list();
+            for (String s : entries) {
+                File currentFile = new File(index.getPath(), s);
+                currentFile.delete();
+            }
         }
+
     }
 
     public void createFolders() {
@@ -61,13 +63,12 @@ public class FileManager {
             System.out.println("the folder images created");
         }
     }
-    
-    
+
     public void createCapsuleImage() throws FileNotFoundException, IOException {
         String copy = "src/newMod/images/capsule.png";
         String paste = folder + "/capsule.png";
-        File src= new File(copy);
-        File dest= new File(paste);
+        File src = new File(copy);
+        File dest = new File(paste);
         InputStream is = null;
         OutputStream os = null;
         try {
@@ -86,12 +87,12 @@ public class FileManager {
             os.close();
         }
     }
-    
+
     public void createExampleProductImage() throws FileNotFoundException, IOException {
         String copy = "src/newMod/images/ps4.png";
         String paste = folder + "/images/example.png";
-        File src= new File(copy);
-        File dest= new File(paste);
+        File src = new File(copy);
+        File dest = new File(paste);
         InputStream is = null;
         OutputStream os = null;
         try {
@@ -110,7 +111,7 @@ public class FileManager {
             os.close();
         }
     }
-    
+
     public void createDDBB() {
         File archivo = new File(folder + "/mod.sqlite");
         BufferedWriter bw;
@@ -134,7 +135,8 @@ public class FileManager {
     public void insertModData(String name, String author, String description) {
         conn.insertModData(name, author, description);
     }
+
     public void createExapleProduct() {
-       conn.insertProductExample();
+        conn.insertProductExample();
     }
 }
