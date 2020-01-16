@@ -6,6 +6,7 @@
 package loadMod;
 
 import editMod.editMod;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -132,7 +133,7 @@ public class LoadMod extends javax.swing.JFrame {
         FileManager fm=new FileManager();
         try {
             fm.copyFolder(route.getText(), System.getProperty("user.home") + "/Desktop/tempmod");
-            fm.clearFolder(route.getText());
+            fm.clearFolder(new File(route.getText()));
         } catch (IOException ex) {
             Logger.getLogger(LoadMod.class.getName()).log(Level.SEVERE, null, ex);
         }

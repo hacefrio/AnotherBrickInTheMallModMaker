@@ -116,6 +116,8 @@ public class SqLiteManager {
     }
 
     public void loadProductsList(JComboBox comboBox) {
+        
+        comboBox.removeAllItems();
         if (Integer.parseInt(getCountProducts()) == 0) {
         } else {
             String sql = "SELECT codename as codename\n"

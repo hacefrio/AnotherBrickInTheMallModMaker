@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package compiler;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,6 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import javax.swing.JFileChooser;
@@ -52,28 +52,28 @@ public class Compiler {
             writer.println("    <ModShortDescription>");
             writer.println("        <english>" + properties[2] + "</english>");
             writer.println("    </ModShortDescription>");
-            int number=0;
+            int number = 0;
             for (int i = 0; i < Integer.valueOf(conn.getCountProducts()); i++) {
-                String[] product=conn.getProductProperties(i);
+                String[] product = conn.getProductProperties(i);
                 writer.println("<product>");
-                writer.println("    <codename>"+product[0]+"</codename>");
+                writer.println("    <codename>" + product[0] + "</codename>");
                 writer.println("    <name>");
-                writer.println("        <english>"+product[1]+"</english>");
+                writer.println("        <english>" + product[1] + "</english>");
                 writer.println("    </name>");
                 writer.println("    <specialty_name>");
-                writer.println("        <english>"+product[2]+"</english>");
+                writer.println("        <english>" + product[2] + "</english>");
                 writer.println("    </specialty_name>");
-                writer.println("    <subtype>"+product[3]+"</subtype>");
-                writer.println("    <display_type>"+product[4]+"</display_type>");
-                writer.println("    <depletion_rate>"+product[5]+"</depletion_rate>");
-                writer.println("    <base_demand>"+product[6]+"</base_demand>");
-                writer.println("    <base_price>"+product[7]+"</base_price>");
-                writer.println("    <quality_distribution>"+product[8]+"</quality_distribution>");
-                writer.println("    <expires_in_hours>"+product[9]+"</expires_in_hours>");
-                writer.println("    <requires_research>"+product[10]+"</requires_research>");
-                writer.println("    <horizontal_gfx>"+product[11]+"</horizontal_gfx>");
-                writer.println("    <vertical_gfx>"+product[12]+"</vertical_gfx>");
-                writer.println("    <checkout_gfx>"+product[13]+"</checkout_gfx>");
+                writer.println("    <subtype>" + product[3] + "</subtype>");
+                writer.println("    <display_type>" + product[4] + "</display_type>");
+                writer.println("    <depletion_rate>" + product[5] + "</depletion_rate>");
+                writer.println("    <base_demand>" + product[6] + "</base_demand>");
+                writer.println("    <base_price>" + product[7] + "</base_price>");
+                writer.println("    <quality_distribution>" + product[8] + "</quality_distribution>");
+                writer.println("    <expires_in_hours>" + product[9] + "</expires_in_hours>");
+                writer.println("    <requires_research>" + product[10] + "</requires_research>");
+                writer.println("    <horizontal_gfx>" + product[11] + "</horizontal_gfx>");
+                writer.println("    <vertical_gfx>" + product[12] + "</vertical_gfx>");
+                writer.println("    <checkout_gfx>" + product[13] + "</checkout_gfx>");
                 writer.println("</product>");
                 number++;
             }
@@ -132,13 +132,19 @@ public class Compiler {
     }
 
     public void clearFolder() {
-
-        File index = new File(System.getProperty("user.home") + "/Desktop/tempmod");
-        String[] entries = index.list();
-        for (String s : entries) {
-            File currentFile = new File(index.getPath(), s);
-            currentFile.delete();
+        deleteFolder(new File(tempFolder));
+    }
+    
+    public void deleteFolder(File file) {
+    File[] contents = file.listFiles();
+    if (contents != null) {
+        for (File f : contents) {
+            if (! Files.isSymbolicLink(f.toPath())) {
+                deleteFolder(f);
+            }
         }
+    }
+    file.delete();
     }
 
 }

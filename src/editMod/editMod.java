@@ -434,7 +434,10 @@ public class editMod extends javax.swing.JFrame {
         // TODO add your handling code here:
         productCount.setText(conn.getCountProducts());
         loadProducts();
+        
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         try {
@@ -536,7 +539,7 @@ public class editMod extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
         product product = new product();
         product.setCodename(productCodeName.getText());
         product.setName(productName.getText());
@@ -553,6 +556,7 @@ public class editMod extends javax.swing.JFrame {
         product.setVertical_gfx(tempVerticalGfx);
         product.setCheckout_gfx(tempCheckoutGfx);
         product.saveProduct();
+        loadProducts();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     public void clear() {
