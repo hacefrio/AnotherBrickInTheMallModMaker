@@ -89,8 +89,62 @@ public class FileManager {
     }
 
     public void createExampleProductImage() throws FileNotFoundException, IOException {
+        this.createCheckoutImageExample();
+        this.createHorizontalImageExample();
+        this.createVerticalImageExample();
+    }
+
+    public void createVerticalImageExample() throws FileNotFoundException, IOException {
         String copy = "src/newMod/images/ps4.png";
-        String paste = folder + "/images/example.png";
+        String paste = folder + "/images/VerticalExample.png";
+        File src = new File(copy);
+        File dest = new File(paste);
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(src);
+            os = new FileOutputStream(dest);
+
+            // buffer size 1K
+            byte[] buf = new byte[1024];
+
+            int bytesRead;
+            while ((bytesRead = is.read(buf)) > 0) {
+                os.write(buf, 0, bytesRead);
+            }
+        } finally {
+            is.close();
+            os.close();
+        }
+    }
+
+    public void createHorizontalImageExample() throws FileNotFoundException, IOException {
+        String copy = "src/newMod/images/ps4.png";
+        String paste = folder + "/images/HorizontalExample.png";
+        File src = new File(copy);
+        File dest = new File(paste);
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(src);
+            os = new FileOutputStream(dest);
+
+            // buffer size 1K
+            byte[] buf = new byte[1024];
+
+            int bytesRead;
+            while ((bytesRead = is.read(buf)) > 0) {
+                os.write(buf, 0, bytesRead);
+            }
+        } finally {
+            is.close();
+            os.close();
+        }
+    }
+
+    public void createCheckoutImageExample() throws FileNotFoundException, IOException {
+        String copy = "src/newMod/images/ps4.png";
+        String paste = folder + "/images/CheckoutExample.png";
         File src = new File(copy);
         File dest = new File(paste);
         InputStream is = null;

@@ -71,7 +71,7 @@ private String db = System.getProperty("user.home") + "/Desktop/tempmod/mod.sqli
         }
     }
     public void insertProductExample(){
-        String sql = "insert into product values('Example','Play Station 4','Play Station 4','7','4','1','30','700','6','240000','7','images/ps4.png','images/ps4.png','images/ps4.png');";
+        String sql = "insert into product values('Example','Play Station 4','Play Station 4','7','4','1','30','700','6','240000','7','images/HorizontalExample.png','images/VerticalExample.png','images/CheckOutE1xample.png');";
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();

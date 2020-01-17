@@ -485,6 +485,9 @@ public class editMod extends javax.swing.JFrame {
         System.out.println(product[8]);
         expires.setText(product[9]);
         requiresResearch.setSelectedItem(tempProd.requiresResearchIntToString(Integer.valueOf(product[10])));
+        tempHorizontalGfx = "images/Horizontal" + productCodeName.getText() + ".png";
+        tempVerticalGfx = "images/Vertical" + productCodeName.getText() + ".png";
+        tempCheckoutGfx = "images/Checkout" + productCodeName.getText() + ".png";
         barrasReload();
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -555,6 +558,7 @@ public class editMod extends javax.swing.JFrame {
         product.setHorizontal_gfx(tempHorizontalGfx);
         product.setVertical_gfx(tempVerticalGfx);
         product.setCheckout_gfx(tempCheckoutGfx);
+        
         product.saveProduct();
         loadProducts();
     }//GEN-LAST:event_jButton10ActionPerformed
