@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -176,32 +177,34 @@ public class SqLiteManager {
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                if (rs.getString("codename") == product.getCodename()) {
+                if (rs.getString("codename").equals(product.getCodename())) {
                     String sql2 = "UPDATE product\n"
-                            + "SET codename = " + product.getCodename() + ", \n"
-                            + "name = " + product.getName() + ", \n"
-                            + "specialty_name = " + product.getSpecalty_name() + ", \n"
-                            + "subtype = " + product.getSubtype() + ", \n"
-                            + "display_type = " + product.getDisplay_type() + ", \n"
-                            + "depletion_rate = " + product.getDepletion_rate() + ", \n"
-                            + "base_demand = " + product.getBase_demand() + ", \n"
-                            + "base_price = " + product.getBase_price() + ", \n"
-                            + "quality_distribution = " + product.getQuality_distribution() + ", \n"
-                            + "expires_in_hours = " + product.getExpires_in_hours() + ", \n"
-                            + "requires_research = " + product.getRequires_research() + ", \n"
-                            + "horizontal_gfx = " + product.getHorizontal_gfx() + ", \n"
-                            + "vertical_gfx = " + product.getVertical_gfx() + ", \n"
-                            + "checkout_gfx = " + product.getCheckout_gfx() + " \n"
-                            + "WHERE codename =" + product.getCodename() + ";";
+                            + "SET name = '" + product.getName() + "', \n"
+                            + "specialty_name = '" + product.getSpecalty_name() + "', \n"
+                            + "subtype = '" + product.getSubtype() + "', \n"
+                            + "display_type = '" + product.getDisplay_type() + "', \n"
+                            + "depletion_rate = '" + product.getDepletion_rate() + "', \n"
+                            + "base_demand = '" + product.getBase_demand() + "', \n"
+                            + "base_price = '" + product.getBase_price() + "', \n"
+                            + "quality_distribution = '" + product.getQuality_distribution() + "', \n"
+                            + "expires_in_hours = '" + product.getExpires_in_hours() + "', \n"
+                            + "requires_research = '" + product.getRequires_research() + "', \n"
+                            + "horizontal_gfx = '" + product.getHorizontal_gfx() + "', \n"
+                            + "vertical_gfx = '" + product.getVertical_gfx() + "', \n"
+                            + "checkout_gfx = '" + product.getCheckout_gfx() + "' \n"
+                            + "WHERE codename ='" + product.getCodename() + "';";
                     Statement stmt2 = conn.createStatement();
+                    JOptionPane.showMessageDialog(null,"product edited");
                     ResultSet rs2 = stmt.executeQuery(sql2);
                     rs2.next();
                 } else {
                     String sql2 = "insert into product values('" + product.getCodename() + "','" + product.getName() + "','" + product.getSpecalty_name() + "','" + product.getSubtype() + "','" + product.getDisplay_type() + "','" + product.getDepletion_rate() + "','" + product.getBase_demand() + "','" + product.getBase_price() + "','" + product.getQuality_distribution() + "','" + product.getExpires_in_hours() + "','" + product.getRequires_research() + "','" + product.getHorizontal_gfx() + "','" + product.getVertical_gfx() + "','" + product.getCheckout_gfx() + "')";
                     Statement stmt2 = conn.createStatement();
+                    JOptionPane.showMessageDialog(null,"product create");
                     ResultSet rs2 = stmt.executeQuery(sql2);
                     rs2.next();
                 }
+                
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
