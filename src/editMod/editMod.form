@@ -531,7 +531,7 @@
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Cold chain&quot;,&quot;Alcohol license&quot;,&quot;Frozen food supplier&quot;,&quot;Chemical supplier&quot;,&quot;Clothing supplier&quot;,&quot;Electronics supplier&quot;,&quot;Media supplier&quot;,&quot;Appliances supplier&quot;,&quot;Tools supplier&quot;,&quot;Luxury supplier&quot;,&quot;Tobacco license&quot;,&quot;Newsagent supplier&quot;,&quot;Plants and Gardening supplier&quot;,&quot;E-Cigarettes supplier&quot;})" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;none&quot;,&quot;Cold chain&quot;,&quot;Alcohol license&quot;,&quot;Frozen food supplier&quot;,&quot;Chemical supplier&quot;,&quot;Clothing supplier&quot;,&quot;Electronics supplier&quot;,&quot;Media supplier&quot;,&quot;Appliances supplier&quot;,&quot;Tools supplier&quot;,&quot;Luxury supplier&quot;,&quot;Tobacco license&quot;,&quot;Newsagent supplier&quot;,&quot;Plants and Gardening supplier&quot;,&quot;E-Cigarettes supplier&quot;})" type="code"/>
                 </Property>
               </Properties>
               <Constraints>

@@ -310,7 +310,7 @@ public class editMod extends javax.swing.JFrame {
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
 
         requiresResearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        requiresResearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cold chain","Alcohol license","Frozen food supplier","Chemical supplier","Clothing supplier","Electronics supplier","Media supplier","Appliances supplier","Tools supplier","Luxury supplier","Tobacco license","Newsagent supplier","Plants and Gardening supplier","E-Cigarettes supplier"}));
+        requiresResearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "none","Cold chain","Alcohol license","Frozen food supplier","Chemical supplier","Clothing supplier","Electronics supplier","Media supplier","Appliances supplier","Tools supplier","Luxury supplier","Tobacco license","Newsagent supplier","Plants and Gardening supplier","E-Cigarettes supplier"}));
         jPanel2.add(requiresResearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 210, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

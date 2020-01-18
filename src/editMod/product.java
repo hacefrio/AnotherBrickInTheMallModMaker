@@ -342,8 +342,9 @@ public class product {
     
     public String requiresResearchIntToString(int subType1){
         String subType2="";
-        
-        if(subType1==1){
+        if(subType1==0){
+            subType2="none";
+        }else if(subType1==1){
             subType2="Cold chain";
         }else if(subType1==2){
             subType2="Alcohol license";
@@ -379,6 +380,9 @@ public class product {
         int subType2=0;
         
         switch (subType1) {
+            case "none":
+                subType2=0;
+                break;
             case "Cold chain":
                 subType2=1;
                 break;

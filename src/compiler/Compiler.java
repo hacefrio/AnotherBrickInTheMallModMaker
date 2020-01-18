@@ -55,7 +55,7 @@ public class Compiler {
             int number = 0;
             for (int i = 0; i < Integer.valueOf(conn.getCountProducts()); i++) {
                 String[] product = conn.getProductProperties(i);
-                writer.println("<product>");
+                writer.println("<Product>");
                 writer.println("    <codename>" + product[0] + "</codename>");
                 writer.println("    <name>");
                 writer.println("        <english>" + product[1] + "</english>");
@@ -74,7 +74,7 @@ public class Compiler {
                 writer.println("    <horizontal_gfx>" + product[11] + "</horizontal_gfx>");
                 writer.println("    <vertical_gfx>" + product[12] + "</vertical_gfx>");
                 writer.println("    <checkout_gfx>" + product[13] + "</checkout_gfx>");
-                writer.println("</product>");
+                writer.println("</Product>");
                 number++;
             }
             writer.println("</ModData>");
