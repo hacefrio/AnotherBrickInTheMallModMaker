@@ -117,7 +117,7 @@ public class SqLiteManager {
     }
 
     public void loadProductsList(JComboBox comboBox) {
-        
+
         comboBox.removeAllItems();
         if (Integer.parseInt(getCountProducts()) == 0) {
         } else {
@@ -142,28 +142,28 @@ public class SqLiteManager {
     }
 
     public String[] loadProduct(String codename) {
-        String sql = "select * from product where codename ='"+codename+"';";
+        String sql = "select * from product where codename ='" + codename + "';";
         String[] properties = new String[15];
         try (Connection conn = this.connect();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                
-                    properties[0] = rs.getString("codename");
-                    properties[1] = rs.getString("name");
-                    properties[2] = rs.getString("specialty_name");
-                    properties[3] = rs.getString("subtype");
-                    properties[4] = rs.getString("display_type");
-                    properties[5] = rs.getString("depletion_rate");
-                    properties[6] = rs.getString("base_demand");
-                    properties[7] = rs.getString("base_price");
-                    properties[8] = rs.getString("quality_distribution");
-                    properties[9] = rs.getString("expires_in_hours");
-                    properties[10] = rs.getString("requires_research");
-                    properties[11] = rs.getString("horizontal_gfx");
-                    properties[12] = rs.getString("vertical_gfx");
-                    properties[13] = rs.getString("checkout_gfx");
-                
+
+                properties[0] = rs.getString("codename");
+                properties[1] = rs.getString("name");
+                properties[2] = rs.getString("specialty_name");
+                properties[3] = rs.getString("subtype");
+                properties[4] = rs.getString("display_type");
+                properties[5] = rs.getString("depletion_rate");
+                properties[6] = rs.getString("base_demand");
+                properties[7] = rs.getString("base_price");
+                properties[8] = rs.getString("quality_distribution");
+                properties[9] = rs.getString("expires_in_hours");
+                properties[10] = rs.getString("requires_research");
+                properties[11] = rs.getString("horizontal_gfx");
+                properties[12] = rs.getString("vertical_gfx");
+                properties[13] = rs.getString("checkout_gfx");
+
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -173,6 +173,7 @@ public class SqLiteManager {
 
     public void saveProduct(product product) {
         String sql = "select * from product";
+        boolean exist = true;
         try (Connection conn = this.connect();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
@@ -194,21 +195,24 @@ public class SqLiteManager {
                             + "checkout_gfx = '" + product.getCheckout_gfx() + "' \n"
                             + "WHERE codename ='" + product.getCodename() + "';";
                     Statement stmt2 = conn.createStatement();
-                    JOptionPane.showMessageDialog(null,"product edited");
+                    JOptionPane.showMessageDialog(null, "product edited");
                     ResultSet rs2 = stmt.executeQuery(sql2);
+                    exist = true;
                     rs2.next();
                 } else {
-                    String sql2 = "insert into product values('" + product.getCodename() + "','" + product.getName() + "','" + product.getSpecalty_name() + "','" + product.getSubtype() + "','" + product.getDisplay_type() + "','" + product.getDepletion_rate() + "','" + product.getBase_demand() + "','" + product.getBase_price() + "','" + product.getQuality_distribution() + "','" + product.getExpires_in_hours() + "','" + product.getRequires_research() + "','" + product.getHorizontal_gfx() + "','" + product.getVertical_gfx() + "','" + product.getCheckout_gfx() + "')";
-                    Statement stmt2 = conn.createStatement();
-                    JOptionPane.showMessageDialog(null,"product create");
-                    ResultSet rs2 = stmt.executeQuery(sql2);
-                    rs2.next();
+                    exist = false;
                 }
-                
+
+            }
+            if (exist == false) {
+                String sql2 = "insert into product values('" + product.getCodename() + "','" + product.getName() + "','" + product.getSpecalty_name() + "','" + product.getSubtype() + "','" + product.getDisplay_type() + "','" + product.getDepletion_rate() + "','" + product.getBase_demand() + "','" + product.getBase_price() + "','" + product.getQuality_distribution() + "','" + product.getExpires_in_hours() + "','" + product.getRequires_research() + "','" + product.getHorizontal_gfx() + "','" + product.getVertical_gfx() + "','" + product.getCheckout_gfx() + "')";
+                Statement stmt2 = conn.createStatement();
+                JOptionPane.showMessageDialog(null, "product create");
+                ResultSet rs2 = stmt.executeQuery(sql2);
+                rs2.next();
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
     }
 }
