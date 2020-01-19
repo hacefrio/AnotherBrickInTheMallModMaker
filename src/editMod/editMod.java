@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -121,6 +122,8 @@ public class editMod extends javax.swing.JFrame {
         depletionRateCount = new javax.swing.JLabel();
         baseDemandCount = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
         capsule = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
 
@@ -191,10 +194,10 @@ public class editMod extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("cuntent Products:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
 
         productCount.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(productCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 60, -1));
+        jPanel2.add(productCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 70, -1));
 
         jButton5.setText("refresh");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -206,11 +209,11 @@ public class editMod extends javax.swing.JFrame {
 
         list.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         list.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
-        jPanel2.add(list, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+        jPanel2.add(list, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("products list:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 20));
 
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton6.setText("Load product");
@@ -223,44 +226,44 @@ public class editMod extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("product Codename: ");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
         productCodeName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(productCodeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 210, -1));
+        jPanel2.add(productCodeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 210, -1));
 
         productName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(productName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 210, -1));
+        jPanel2.add(productName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Product name:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         specialtyName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(specialtyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 210, -1));
+        jPanel2.add(specialtyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Subtype:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("specialty name:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         subType.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         subType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Food", "Beverages", "Household Items", "Health and Beauty","Tools and Materials","Electronics and Appliances","Clothing","Media","Press and Print","Plants and Gardening","Misc","Sports and Outdoors","Toys and Games" }));
-        jPanel2.add(subType, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 210, -1));
+        jPanel2.add(subType, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 210, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("depletion rate:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         qualityDistribution.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         qualityDistribution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "no specialization (100/0/0)", "standard (75/25/0)", "high sub-category (50/50/0)", "specialty (30/30/40)","high specialty (10/30/70)","no middle (30/0/70) - typically for products in the 'Misc' sub-category","only specialty (0/0/100)" }));
-        jPanel2.add(qualityDistribution, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 210, -1));
+        jPanel2.add(qualityDistribution, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Display type:");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         depletionRateBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -270,64 +273,64 @@ public class editMod extends javax.swing.JFrame {
                 depletionRateBarMouseMoved(evt);
             }
         });
-        jPanel2.add(depletionRateBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 210, -1));
+        jPanel2.add(depletionRateBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 210, -1));
 
         baseDemandBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 baseDemandBarMouseDragged(evt);
             }
         });
-        jPanel2.add(baseDemandBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 210, -1));
+        jPanel2.add(baseDemandBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("base demand:");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("base price:");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
         basePriceBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 basePriceBarMouseDragged(evt);
             }
         });
-        jPanel2.add(basePriceBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 210, -1));
+        jPanel2.add(basePriceBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 210, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("quality distribution:");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
 
         displayType.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         displayType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Food shelf", "Fridge only", "Fridge or food shelf (suitable for drinks)", "Table","Cloth rack","Pallet","Non-food shelf" }));
-        jPanel2.add(displayType, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 210, -1));
+        jPanel2.add(displayType, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 210, -1));
 
         expires.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(expires, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 210, -1));
+        jPanel2.add(expires, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 210, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("expires(hours):");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
 
         requiresResearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         requiresResearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "none","Cold chain","Alcohol license","Frozen food supplier","Chemical supplier","Clothing supplier","Electronics supplier","Media supplier","Appliances supplier","Tools supplier","Luxury supplier","Tobacco license","Newsagent supplier","Plants and Gardening supplier","E-Cigarettes supplier"}));
-        jPanel2.add(requiresResearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 210, -1));
+        jPanel2.add(requiresResearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 210, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel16.setText("checkout gfx:");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel17.setText("requires research:");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, -1));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("vertical gfx:");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel19.setText("horizontal gfx:");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton7.setText("upload file");
@@ -336,7 +339,7 @@ public class editMod extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, -1, -1));
+        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, -1));
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton8.setText("upload file");
@@ -345,7 +348,7 @@ public class editMod extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, -1, -1));
+        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, -1));
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton9.setText("upload file");
@@ -354,7 +357,7 @@ public class editMod extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, -1));
+        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, -1));
 
         jButton10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton10.setText("Create / Edit  Product");
@@ -363,19 +366,19 @@ public class editMod extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 400, 170, -1));
+        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 170, -1));
 
         basePriceCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         basePriceCount.setText("999");
-        jPanel2.add(basePriceCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 210, 10));
+        jPanel2.add(basePriceCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 210, 10));
 
         depletionRateCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         depletionRateCount.setText("999");
-        jPanel2.add(depletionRateCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 210, 20));
+        jPanel2.add(depletionRateCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 210, 20));
 
         baseDemandCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         baseDemandCount.setText("999");
-        jPanel2.add(baseDemandCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 210, 20));
+        jPanel2.add(baseDemandCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 210, 20));
 
         jButton12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton12.setText("Clear");
@@ -384,7 +387,25 @@ public class editMod extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, -1, -1));
+
+        jButton13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton13.setText("Gameplay mod");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
+
+        jButton14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton14.setText("Delete");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 830, 440));
         jPanel1.add(capsule, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 240, 140));
@@ -563,6 +584,18 @@ public class editMod extends javax.swing.JFrame {
         loadProducts();
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        conn.deleteProduct(productCodeName.getText());
+        clear();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        
+        JOptionPane.showMessageDialog(null, "coming soon", "Alert", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
     public void clear() {
         productCodeName.setText("");
         productCodeName.setEditable(true);
@@ -641,6 +674,8 @@ public class editMod extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

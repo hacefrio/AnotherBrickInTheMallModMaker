@@ -116,6 +116,20 @@ public class SqLiteManager {
         return counter;
     }
 
+    public void deleteProduct(String codename) {
+        String sql = "DELETE FROM product WHERE codename = '"+codename+"'; ";
+        String[] properties = new String[3];
+        try (Connection conn = this.connect();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public void loadProductsList(JComboBox comboBox) {
 
         comboBox.removeAllItems();
@@ -195,7 +209,7 @@ public class SqLiteManager {
                             + "checkout_gfx = '" + product.getCheckout_gfx() + "' \n"
                             + "WHERE codename ='" + product.getCodename() + "';";
                     Statement stmt2 = conn.createStatement();
-                    JOptionPane.showMessageDialog(null, "product edited");
+                    JOptionPane.showMessageDialog(null, "product edited", "Alert", JOptionPane.INFORMATION_MESSAGE);
                     ResultSet rs2 = stmt.executeQuery(sql2);
                     exist = true;
                     rs2.next();
@@ -207,7 +221,7 @@ public class SqLiteManager {
             if (exist == false) {
                 String sql2 = "insert into product values('" + product.getCodename() + "','" + product.getName() + "','" + product.getSpecalty_name() + "','" + product.getSubtype() + "','" + product.getDisplay_type() + "','" + product.getDepletion_rate() + "','" + product.getBase_demand() + "','" + product.getBase_price() + "','" + product.getQuality_distribution() + "','" + product.getExpires_in_hours() + "','" + product.getRequires_research() + "','" + product.getHorizontal_gfx() + "','" + product.getVertical_gfx() + "','" + product.getCheckout_gfx() + "')";
                 Statement stmt2 = conn.createStatement();
-                JOptionPane.showMessageDialog(null, "product create");
+                JOptionPane.showMessageDialog(null, "Product Created", "Alert", JOptionPane.INFORMATION_MESSAGE);
                 ResultSet rs2 = stmt.executeQuery(sql2);
                 rs2.next();
             }
